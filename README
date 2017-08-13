@@ -1,3 +1,8 @@
+My own fork of dwm
+===================
+support for resizing, toggling float on fullscreen applications
+
+
 dwm - dynamic window manager
 ============================
 dwm is an extremely fast, small, and dynamic window manager for X.
