@@ -7,12 +7,12 @@ static const unsigned int borderpx   = 3;   /* border pixel of windows */
 static const unsigned int snap       = 14;  /* snap pixel */
 static const int showbar             = 1;   /* 0 means no bar */
 static const int topbar              = 1;   /* 0 means bottom bar */
-static const char *fonts[]           = { "droid sans:size=14" };
+static const char *fonts[]           = { "droid sans:size=16" };
 static const char col_bg[]           = "#0C131A";
 static const char col_fg[]           = "#E0E0E0";
-static const char col_bdsel[]        = "#613A57";
+static const char col_bdsel[]        = "#0E7199";
 static const char col_fgsel[]        = "#FFFFFF";
-static const char col_bgsel[]        = "#613A57";
+static const char col_bgsel[]        = "#0E7199";
 const char *colors[][3] = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_fg,    col_bg,    col_bg },
@@ -62,11 +62,11 @@ static const Layout layouts[] = {
 char dmenumon[2]         = "0"; /* component of dmenucmd, manipulated in spawn() */
 const char *dmenucmd[]     = { "dmenu_run", NULL };
 const char *st[]           = { "gnome-terminal", NULL };
-const char *urxvt[]        = { "urxvt", NULL };
+const char *urxvt[]        = { "st", NULL };
 const char *mute[]         = { "amixer", "-q", "set", "Master", "toggle", "nocap", NULL };
-const char *volu[]         = { "amixer", "-q", "sset", "Master", "2%+", NULL };
-const char *vold[]         = { "amixer", "-q", "sset", "Master", "2%-", NULL };
-const char *dpms[]         = { "dash", "-c", "sleep 0.30 && xset dpms force off", NULL };
+const char *volu[]         = { "amixer", "-q", "sset", "Master", "5%+", NULL };
+const char *vold[]         = { "amixer", "-q", "sset", "Master", "5%-", NULL };
+const char *dpms[]         = { "dash", "-c", "sleep 0.3 && xset dpms force off", NULL };
 const char *lcdu[]         = { "xbacklight", "-inc", "5", NULL };
 const char *lcdd[]         = { "xbacklight", "-dec", "5", NULL };
 const char *prntscrcmd[]   = { "scrot", "-q", "100", NULL };
@@ -75,8 +75,8 @@ const char *file_manager[] = { "dash", "-c", "GTK_THEME=Adwaita:dark spacefm", N
 const char *mict[]         = { "amixer", "set", "Capture", "toggle", NULL };
 const char *cal[]          = { "urxvt", "-e", "python", NULL };
 const char *alsa[]         = { "st", "-g", "10x10x10x10", "-e", "alsamixer", NULL };
-const char *firefox[]      = { "firefox", NULL };
-const char *chromium[]     = { "chromium", NULL };
+const char *firefox[]      = { "firefox-bin", NULL };
+const char *chrome[]     = { "google-chrome-stable", "--force-device-scale-factor=1.2", NULL };
 
 
 // XK_apostrophe XK_semicolon XK_colon XK_slash
@@ -96,8 +96,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Print,  spawn,          {.v = prntscrcmd } },
 	{ WINKEY,                       XK_l,      spawn,          {.v = slock } },
 	{ MODKEY,                       XK_a,      spawn,          {.v = alsa } },
-	{ 0,                      XF86XK_HomePage, spawn,          {.v = chromium } },
-	{ MODKEY,                 XF86XK_HomePage, spawn,          {.v = firefox } },
+	{ 0,                      XF86XK_HomePage, spawn,          {.v = firefox } },
+	{ MODKEY,                 XF86XK_HomePage, spawn,          {.v = chrome } },
 	{ 0,                    XF86XK_MyComputer, spawn,          {.v = file_manager } },
 	{ 0,                            XK_F4,     spawn,          {.v = mict } },
 	{ 0,                    XF86XK_Calculator, spawn,          {.v = cal } },
